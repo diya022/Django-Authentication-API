@@ -1,0 +1,23 @@
+1. Token-based authentication provides a way to manage user identity and authentication across multiple clients and servers by storing user information in the form of a unique token on the client side and sending that token along with each request to be validated by the server for the logged-in user. 
+
+2.  Django, and its popular Django Rest Framework (DRF) package to build our backend API.
+
+
+3. what is corsheader app? and why it is used?
+CORS stands for Cross-Origin Resource Sharing. It is a security feature implemented by web browsers to prevent web pages from making requests to a different domain than the one from which the page was served. This is done to mitigate the risks associated with cross-origin HTTP requests, such as cross-site scripting attacks.
+
+When you're developing a web application with separate frontend and backend components hosted on different domains or ports, you often encounter CORS restrictions. For instance, if your frontend, hosted at domain frontend.example.com, tries to make a request to your backend API hosted at api.example.com, the browser may block this request due to CORS policies.
+
+To allow such cross-domain HTTP requests and responses to occur between the frontend and backend of your application, you need to configure CORS headers on your backend server. These headers inform the browser that it's safe to allow requests from certain origins, methods, and headers.
+
+
+4. Since we will be authenticating our users from the frontend of our web application, we will need a way for the browser to keep track of the user that is currently logged in. A common pattern for persisting the identity of the logged-in user on the client side is to use a unique user token, such as a randomly generated string of characters, provided by the server and stored in the browser’s Local Storage via the Window.localStorage Web API. This token is then sent along with each subsequent HTTP request following authentication to identify the user. For this tutorial, we will use DRF’s built-in token authentication. 
+
+5. DRF tokens are stored in their own database table along with a reference to their associated user, so we need to tell Django to create a new token whenever a new User instance is created. 
+
+Django signals provide an interface for just these kinds of communications between the models in various apps of a Django project.
+
+6. The purpose of our REST API is to provide an interface for our client-side code to interact with in order to perform CRUD actions on the data in our project’s database.
+
+
+7. An important piece of that puzzle is the translation of that data through a process known as serialization into a format that our client-side code can understand. 
